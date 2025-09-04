@@ -1,0 +1,54 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #fff;
+  margin: 0;
+}
+
+.image {
+  position: relative;
+}
+
+.image img {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  border: 5px solid #fff;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* Floating shapes */
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  opacity: 0.9;
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Circle shape */
+.circle {
+  width: 25px;
+  height: 25px;
+  background: #9b59b6;
+  top: 20px;
+  left: -40px;
+}
+
+/* Square / rounded square */
+.square {
+  width: 20px;
+  height: 20px;
+  background: #f39c12;
+  border-radius: 5px;
+  bottom: 40px;
+  right: -30px;
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
