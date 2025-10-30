@@ -1,54 +1,90 @@
+/* Basic Reset/Container Styles */
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background: #fff;
-  margin: 0;
+    font-family: sans-serif;
+    background-color: #121212; /* Dark background */
+    color: #f0f0f0; /* Light text */
+    padding: 20px;
 }
 
-.image {
-  position: relative;
+.quests-section h2 {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
 }
 
-.image img {
-  width: 250px;
-  height: 250px;
-  border-radius: 50%;
-  border: 5px solid #fff;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+/* --- Container for the Quests (Crucial for the row layout) --- */
+.quests-container {
+    display: flex; /* Activate Flexbox */
+    gap: 20px; /* Space between the cards */
+    flex-wrap: wrap; /* Allows cards to wrap on smaller screens */
+    margin-bottom: 40px;
 }
 
-/* Floating shapes */
-.shape {
-  position: absolute;
-  border-radius: 50%;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-  opacity: 0.9;
-  animation: float 6s ease-in-out infinite;
+/* --- Quest Card Styling --- */
+.quest-card {
+    /* To make all four cards equal width */
+    flex: 1 1 23%; /* flex-grow: 1, flex-shrink: 1, flex-basis: 23% (approx 1/4 of container minus gap) */
+    
+    background-color: #1e1e1e; /* Darker background for the card */
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 15px;
+    min-width: 200px; /* Ensures they don't get too small */
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
-/* Circle shape */
-.circle {
-  width: 25px;
-  height: 25px;
-  background: #9b59b6;
-  top: 20px;
-  left: -40px;
+/* Hover effect for interactivity */
+.quest-card:hover {
+    transform: translateY(-3px); /* Slight lift */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
 
-/* Square / rounded square */
-.square {
-  width: 20px;
-  height: 20px;
-  background: #f39c12;
-  border-radius: 5px;
-  bottom: 40px;
-  right: -30px;
+/* Style the internal link to cover the whole card and remove link decoration */
+.quest-link {
+    text-decoration: none;
+    color: inherit; /* Use the parent text color */
+    display: block; /* Make the link a block element */
+    height: 100%; /* Ensure it fills the card height */
 }
 
-/* Floating animation */
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-15px); }
+/* Quest Header Styling */
+.quest-card h3 {
+    display: flex;
+    justify-content: space-between; /* Pushes the arrow to the right */
+    align-items: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+/* Quest Description */
+.quest-card p {
+    font-size: 0.9rem;
+    color: #aaa;
+    margin-bottom: 20px;
+    min-height: 40px; /* Ensures consistent card height if description is short */
+}
+
+/* The External Link Arrow */
+.external-icon {
+    font-size: 1.2rem;
+    color: #00ffaa; /* Accent color for the arrow */
+    line-height: 1; /* Aligns it properly with the text */
+}
+
+/* --- Reward Tag Styling --- */
+.reward-tag {
+    display: inline-flex; /* Allows the icon and text to be side-by-side */
+    align-items: center;
+    background-color: #004d33; /* Dark green background */
+    color: #00ffaa; /* Light green text */
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 0.85rem;
+}
+
+.reward-icon {
+    font-size: 0.9rem;
+    margin-right: 5px;
 }
